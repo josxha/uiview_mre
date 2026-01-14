@@ -9,8 +9,6 @@ void main(List<String> args) {
     headers: Headers(
       entryPoints: [packageRoot.resolve('ios/Runner/CustomUIView.h')],
       compilerOptions: [
-        '-Fios/.build/MapLibre.xcframework/ios-arm64/',
-        '-Iios/.build/MapLibre.xcframework/ios-arm64/MapLibre.framework/Headers',
         '-isysroot',
         '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk',
       ],
