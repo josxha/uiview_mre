@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:uiview_mre/ffi.g.dart';
 
@@ -11,9 +10,11 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (kDebugMode) {
-      print(CustomUIView);
-    }
-    return const Scaffold(body: Text('OK'),);
+    MyProtocol$Builder.implement(
+      doSomething: () {
+        print('test');
+      },
+    );
+    return const Scaffold(body: Text('OK'));
   }
 }

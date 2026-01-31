@@ -1,7 +1,7 @@
 #include <stdint.h>
 #import <Foundation/Foundation.h>
 #import <objc/message.h>
-#import "../ios/Runner/CustomUIView.h"
+#import "../ios/Runner/MyProtocol.h"
 
 #if !__has_feature(objc_arc)
 #error "This file must be compiled with ARC enabled"
@@ -49,44 +49,21 @@ id objc_retainBlock(id);
   };
 
 
-typedef void  (^_ListenerTrampoline)(void);
+typedef void  (^_ListenerTrampoline)(void * arg0);
 __attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline _NativeLibrary_wrapListenerBlock_1pl9qdv(_ListenerTrampoline block) NS_RETURNS_RETAINED {
-  return ^void() {
-    objc_retainBlock(block);
-    block();
-  };
-}
-
-typedef void  (^_BlockingTrampoline)(void * waiter);
-__attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline _NativeLibrary_wrapBlockingBlock_1pl9qdv(
-    _BlockingTrampoline block, _BlockingTrampoline listenerBlock,
-    DOBJC_Context* ctx) NS_RETURNS_RETAINED {
-  BLOCKING_BLOCK_IMPL(ctx, ^void(), {
-    objc_retainBlock(block);
-    block(nil);
-  }, {
-    objc_retainBlock(listenerBlock);
-    listenerBlock(waiter);
-  });
-}
-
-typedef void  (^_ListenerTrampoline_1)(BOOL arg0);
-__attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline_1 _NativeLibrary_wrapListenerBlock_1s56lr9(_ListenerTrampoline_1 block) NS_RETURNS_RETAINED {
-  return ^void(BOOL arg0) {
+_ListenerTrampoline _NativeLibrary_wrapListenerBlock_ovsamd(_ListenerTrampoline block) NS_RETURNS_RETAINED {
+  return ^void(void * arg0) {
     objc_retainBlock(block);
     block(arg0);
   };
 }
 
-typedef void  (^_BlockingTrampoline_1)(void * waiter, BOOL arg0);
+typedef void  (^_BlockingTrampoline)(void * waiter, void * arg0);
 __attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline_1 _NativeLibrary_wrapBlockingBlock_1s56lr9(
-    _BlockingTrampoline_1 block, _BlockingTrampoline_1 listenerBlock,
+_ListenerTrampoline _NativeLibrary_wrapBlockingBlock_ovsamd(
+    _BlockingTrampoline block, _BlockingTrampoline listenerBlock,
     DOBJC_Context* ctx) NS_RETURNS_RETAINED {
-  BLOCKING_BLOCK_IMPL(ctx, ^void(BOOL arg0), {
+  BLOCKING_BLOCK_IMPL(ctx, ^void(void * arg0), {
     objc_retainBlock(block);
     block(nil, arg0);
   }, {
@@ -95,87 +72,19 @@ _ListenerTrampoline_1 _NativeLibrary_wrapBlockingBlock_1s56lr9(
   });
 }
 
-typedef id  (^_ProtocolTrampoline)(void * sel);
+typedef void  (^_ProtocolTrampoline)(void * sel);
 __attribute__((visibility("default"))) __attribute__((used))
-id  _NativeLibrary_protocolTrampoline_1mbt9g9(id target, void * sel) {
+void  _NativeLibrary_protocolTrampoline_ovsamd(id target, void * sel) {
   return ((_ProtocolTrampoline)((id (*)(id, SEL, SEL))objc_msgSend)(target, @selector(getDOBJCDartProtocolMethodForSelector:), sel))(sel);
 }
 
-typedef void  (^_ListenerTrampoline_2)(void * arg0, id arg1);
+typedef id  (^_ProtocolTrampoline_1)(void * sel);
 __attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline_2 _NativeLibrary_wrapListenerBlock_18v1jvf(_ListenerTrampoline_2 block) NS_RETURNS_RETAINED {
-  return ^void(void * arg0, id arg1) {
-    objc_retainBlock(block);
-    block(arg0, (__bridge id)(__bridge_retained void*)(arg1));
-  };
+id  _NativeLibrary_protocolTrampoline_1mbt9g9(id target, void * sel) {
+  return ((_ProtocolTrampoline_1)((id (*)(id, SEL, SEL))objc_msgSend)(target, @selector(getDOBJCDartProtocolMethodForSelector:), sel))(sel);
 }
 
-typedef void  (^_BlockingTrampoline_2)(void * waiter, void * arg0, id arg1);
-__attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline_2 _NativeLibrary_wrapBlockingBlock_18v1jvf(
-    _BlockingTrampoline_2 block, _BlockingTrampoline_2 listenerBlock,
-    DOBJC_Context* ctx) NS_RETURNS_RETAINED {
-  BLOCKING_BLOCK_IMPL(ctx, ^void(void * arg0, id arg1), {
-    objc_retainBlock(block);
-    block(nil, arg0, (__bridge id)(__bridge_retained void*)(arg1));
-  }, {
-    objc_retainBlock(listenerBlock);
-    listenerBlock(waiter, arg0, (__bridge id)(__bridge_retained void*)(arg1));
-  });
-}
-
-typedef void  (^_ProtocolTrampoline_1)(void * sel, id arg1);
-__attribute__((visibility("default"))) __attribute__((used))
-void  _NativeLibrary_protocolTrampoline_18v1jvf(id target, void * sel, id arg1) {
-  return ((_ProtocolTrampoline_1)((id (*)(id, SEL, SEL))objc_msgSend)(target, @selector(getDOBJCDartProtocolMethodForSelector:), sel))(sel, arg1);
-}
-
-typedef BOOL  (^_ProtocolTrampoline_2)(void * sel);
-__attribute__((visibility("default"))) __attribute__((used))
-BOOL  _NativeLibrary_protocolTrampoline_e3qsqz(id target, void * sel) {
-  return ((_ProtocolTrampoline_2)((id (*)(id, SEL, SEL))objc_msgSend)(target, @selector(getDOBJCDartProtocolMethodForSelector:), sel))(sel);
-}
-
-typedef struct UIEdgeInsets  (^_ProtocolTrampoline_3)(void * sel);
-__attribute__((visibility("default"))) __attribute__((used))
-struct UIEdgeInsets  _NativeLibrary_protocolTrampoline_1rtilx3(id target, void * sel) {
-  return ((_ProtocolTrampoline_3)((id (*)(id, SEL, SEL))objc_msgSend)(target, @selector(getDOBJCDartProtocolMethodForSelector:), sel))(sel);
-}
-
-typedef struct CGRect  (^_ProtocolTrampoline_4)(void * sel, id arg1);
-__attribute__((visibility("default"))) __attribute__((used))
-struct CGRect  _NativeLibrary_protocolTrampoline_szn7s6(id target, void * sel, id arg1) {
-  return ((_ProtocolTrampoline_4)((id (*)(id, SEL, SEL))objc_msgSend)(target, @selector(getDOBJCDartProtocolMethodForSelector:), sel))(sel, arg1);
-}
-
-typedef BOOL  (^_ProtocolTrampoline_5)(void * sel, id arg1);
-__attribute__((visibility("default"))) __attribute__((used))
-BOOL  _NativeLibrary_protocolTrampoline_3su7tt(id target, void * sel, id arg1) {
-  return ((_ProtocolTrampoline_5)((id (*)(id, SEL, SEL))objc_msgSend)(target, @selector(getDOBJCDartProtocolMethodForSelector:), sel))(sel, arg1);
-}
-
-typedef void  (^_ListenerTrampoline_3)(id arg0, id arg1);
-__attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline_3 _NativeLibrary_wrapListenerBlock_pfv6jd(_ListenerTrampoline_3 block) NS_RETURNS_RETAINED {
-  return ^void(id arg0, id arg1) {
-    objc_retainBlock(block);
-    block((__bridge id)(__bridge_retained void*)(arg0), (__bridge id)(__bridge_retained void*)(arg1));
-  };
-}
-
-typedef void  (^_BlockingTrampoline_3)(void * waiter, id arg0, id arg1);
-__attribute__((visibility("default"))) __attribute__((used))
-_ListenerTrampoline_3 _NativeLibrary_wrapBlockingBlock_pfv6jd(
-    _BlockingTrampoline_3 block, _BlockingTrampoline_3 listenerBlock,
-    DOBJC_Context* ctx) NS_RETURNS_RETAINED {
-  BLOCKING_BLOCK_IMPL(ctx, ^void(id arg0, id arg1), {
-    objc_retainBlock(block);
-    block(nil, (__bridge id)(__bridge_retained void*)(arg0), (__bridge id)(__bridge_retained void*)(arg1));
-  }, {
-    objc_retainBlock(listenerBlock);
-    listenerBlock(waiter, (__bridge id)(__bridge_retained void*)(arg0), (__bridge id)(__bridge_retained void*)(arg1));
-  });
-}
+Protocol* _NativeLibrary_MyProtocol(void) { return @protocol(MyProtocol); }
 #undef BLOCKING_BLOCK_IMPL
 
 #pragma clang diagnostic pop

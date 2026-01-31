@@ -7,15 +7,14 @@ void main(List<String> args) {
   final generator = FfiGenerator(
     output: Output(dartFile: packageRoot.resolve('lib/ffi.g.dart')),
     headers: Headers(
-      entryPoints: [packageRoot.resolve('ios/Runner/CustomUIView.h')],
+      entryPoints: [packageRoot.resolve('ios/Runner/MyProtocol.h')],
       compilerOptions: [
         '-isysroot',
         '/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk',
       ],
     ),
-    objectiveC: ObjectiveC(interfaces: Interfaces(
-      include: Declarations.includeSet({'CustomUIView'}),
-      includeMember: (declaration, member) => false,
+    objectiveC: ObjectiveC(protocols: Protocols(
+      include: Declarations.includeSet({'MyProtocol'}),
     )),
   );
   generator.generate();
