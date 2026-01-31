@@ -1,6 +1,12 @@
 import Flutter
 import UIKit
 
+@objc(MyProtocol)
+protocol MyProtocol {
+  func doSomething()
+  @objc optional func optionalName() -> String
+}
+
 @main
 @objc class AppDelegate: FlutterAppDelegate {
   override func application(

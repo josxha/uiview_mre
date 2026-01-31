@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:objective_c/objective_c.dart';
 import 'package:uiview_mre/ffi.g.dart';
 
 void main() {
@@ -10,11 +11,13 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyProtocol$Builder.implement(
+    final myProtocol = MyProtocol$Builder.implement(
       doSomething: () {
         print('test');
       },
     );
-    return const Scaffold(body: Text('OK'));
+    return Scaffold(
+      body: SafeArea(child: Text('OK\n${myProtocol.debugDescription}')),
+    );
   }
 }

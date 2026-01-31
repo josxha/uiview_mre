@@ -7,6 +7,9 @@ environment:
   sdk: ^3.10.7
 
 dependencies:
+  code_assets: any
+  hooks: any
+  native_toolchain_c: any
   flutter:
     sdk: flutter
   objective_c: ^9.2.2
