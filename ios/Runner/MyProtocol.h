@@ -12,4 +12,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
+
+@protocol MyProtocol2 <NSObject>
+
+@required
+- (void)doSomething;
+
+@optional
+- (NSString *)optionalName;
+
+@end
+
 NS_ASSUME_NONNULL_END

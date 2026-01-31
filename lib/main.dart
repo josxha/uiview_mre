@@ -12,12 +12,23 @@ class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final myProtocol = MyProtocol$Builder.implement(
-      doSomething: () {
-        print('test');
-      },
+      doSomething: () => print('test1'),
     );
+    final myProtocol2 = MyProtocol2$Builder.implement(
+      doSomething: () => print('test2'),
+    );
+
     return Scaffold(
-      body: SafeArea(child: Text('OK\n${myProtocol.debugDescription}')),
+      body: SafeArea(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('OK'),
+            Text("MyProtocol: ${myProtocol.debugDescription.toDartString()}"),
+            Text("MyProtocol2: ${myProtocol2.debugDescription.toDartString()}"),
+          ],
+        ),
+      ),
     );
   }
 }

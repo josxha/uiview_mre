@@ -85,6 +85,8 @@ id  _NativeLibrary_protocolTrampoline_1mbt9g9(id target, void * sel) {
 }
 
 Protocol* _NativeLibrary_MyProtocol(void) { return @protocol(MyProtocol); }
+
+Protocol* _NativeLibrary_MyProtocol2(void) { return @protocol(MyProtocol2); }
 #undef BLOCKING_BLOCK_IMPL
 
 #pragma clang diagnostic pop

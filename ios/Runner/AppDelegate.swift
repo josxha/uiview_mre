@@ -3,8 +3,8 @@ import UIKit
 
 @objc(MyProtocol)
 protocol MyProtocol {
-  func doSomething()
-  @objc optional func optionalName() -> String
+//  func doSomething()
+//  @objc optional func optionalName() -> String
 }
 
 @main

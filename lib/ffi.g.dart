@@ -645,3 +645,205 @@ interface class MyProtocol$Builder {
     ),
   );
 }
+
+late final _protocol_MyProtocol2 = objc.getProtocol("MyProtocol2");
+
+/// MyProtocol2
+extension type MyProtocol2._(objc.ObjCProtocol object$)
+    implements objc.ObjCProtocol, objc.NSObjectProtocol {
+  /// Constructs a [MyProtocol2] that points to the same underlying object as [other].
+  MyProtocol2.as(objc.ObjCObject other) : object$ = other;
+
+  /// Constructs a [MyProtocol2] that wraps the given raw object pointer.
+  MyProtocol2.fromPointer(
+    ffi.Pointer<objc.ObjCObjectImpl> other, {
+    bool retain = false,
+    bool release = false,
+  }) : object$ = objc.ObjCProtocol(other, retain: retain, release: release);
+
+  /// Returns whether [obj] is an instance of [MyProtocol2].
+  static bool conformsTo(objc.ObjCObject obj) {
+    return _objc_msgSend_e3qsqz(
+      obj.ref.pointer,
+      _sel_conformsToProtocol_,
+      _protocol_MyProtocol2,
+    );
+  }
+}
+
+extension MyProtocol2$Methods on MyProtocol2 {
+  /// doSomething
+  void doSomething() {
+    _objc_msgSend_1pl9qdv(object$.ref.pointer, _sel_doSomething);
+  }
+
+  /// optionalName
+  objc.NSString optionalName() {
+    if (!objc.respondsToSelector(object$.ref.pointer, _sel_optionalName)) {
+      throw objc.UnimplementedOptionalMethodException(
+        'MyProtocol2',
+        'optionalName',
+      );
+    }
+    final $ret = _objc_msgSend_151sglz(object$.ref.pointer, _sel_optionalName);
+    return objc.NSString.fromPointer($ret, retain: true, release: true);
+  }
+}
+
+interface class MyProtocol2$Builder {
+  /// Returns the [objc.Protocol] object for this protocol.
+  static objc.Protocol get $protocol =>
+      objc.Protocol.fromPointer(_protocol_MyProtocol2.cast());
+
+  /// Builds an object that implements the MyProtocol2 protocol. To implement
+  /// multiple protocols, use [addToBuilder] or [objc.ObjCProtocolBuilder] directly.
+  ///
+  /// If `$keepIsolateAlive` is true, this protocol will keep this isolate
+  /// alive until it is garbage collected by both Dart and ObjC.
+  static MyProtocol2 implement({
+    required void Function() doSomething,
+    objc.NSString Function()? optionalName,
+    bool $keepIsolateAlive = true,
+  }) {
+    final builder = objc.ObjCProtocolBuilder(debugName: 'MyProtocol2');
+    MyProtocol2$Builder.doSomething.implement(builder, doSomething);
+    MyProtocol2$Builder.optionalName.implement(builder, optionalName);
+    builder.addProtocol($protocol);
+    return MyProtocol2.as(builder.build(keepIsolateAlive: $keepIsolateAlive));
+  }
+
+  /// Adds the implementation of the MyProtocol2 protocol to an existing
+  /// [objc.ObjCProtocolBuilder].
+  ///
+  /// Note: You cannot call this method after you have called `builder.build`.
+  static void addToBuilder(
+    objc.ObjCProtocolBuilder builder, {
+    required void Function() doSomething,
+    objc.NSString Function()? optionalName,
+    bool $keepIsolateAlive = true,
+  }) {
+    MyProtocol2$Builder.doSomething.implement(builder, doSomething);
+    MyProtocol2$Builder.optionalName.implement(builder, optionalName);
+    builder.addProtocol($protocol);
+  }
+
+  /// Builds an object that implements the MyProtocol2 protocol. To implement
+  /// multiple protocols, use [addToBuilder] or [objc.ObjCProtocolBuilder] directly. All
+  /// methods that can be implemented as listeners will be.
+  ///
+  /// If `$keepIsolateAlive` is true, this protocol will keep this isolate
+  /// alive until it is garbage collected by both Dart and ObjC.
+  static MyProtocol2 implementAsListener({
+    required void Function() doSomething,
+    objc.NSString Function()? optionalName,
+    bool $keepIsolateAlive = true,
+  }) {
+    final builder = objc.ObjCProtocolBuilder(debugName: 'MyProtocol2');
+    MyProtocol2$Builder.doSomething.implementAsListener(builder, doSomething);
+    MyProtocol2$Builder.optionalName.implement(builder, optionalName);
+    builder.addProtocol($protocol);
+    return MyProtocol2.as(builder.build(keepIsolateAlive: $keepIsolateAlive));
+  }
+
+  /// Adds the implementation of the MyProtocol2 protocol to an existing
+  /// [objc.ObjCProtocolBuilder]. All methods that can be implemented as listeners will
+  /// be.
+  ///
+  /// Note: You cannot call this method after you have called `builder.build`.
+  static void addToBuilderAsListener(
+    objc.ObjCProtocolBuilder builder, {
+    required void Function() doSomething,
+    objc.NSString Function()? optionalName,
+    bool $keepIsolateAlive = true,
+  }) {
+    MyProtocol2$Builder.doSomething.implementAsListener(builder, doSomething);
+    MyProtocol2$Builder.optionalName.implement(builder, optionalName);
+    builder.addProtocol($protocol);
+  }
+
+  /// Builds an object that implements the MyProtocol2 protocol. To implement
+  /// multiple protocols, use [addToBuilder] or [objc.ObjCProtocolBuilder] directly. All
+  /// methods that can be implemented as blocking listeners will be.
+  ///
+  /// If `$keepIsolateAlive` is true, this protocol will keep this isolate
+  /// alive until it is garbage collected by both Dart and ObjC.
+  static MyProtocol2 implementAsBlocking({
+    required void Function() doSomething,
+    objc.NSString Function()? optionalName,
+    bool $keepIsolateAlive = true,
+  }) {
+    final builder = objc.ObjCProtocolBuilder(debugName: 'MyProtocol2');
+    MyProtocol2$Builder.doSomething.implementAsBlocking(builder, doSomething);
+    MyProtocol2$Builder.optionalName.implement(builder, optionalName);
+    builder.addProtocol($protocol);
+    return MyProtocol2.as(builder.build(keepIsolateAlive: $keepIsolateAlive));
+  }
+
+  /// Adds the implementation of the MyProtocol2 protocol to an existing
+  /// [objc.ObjCProtocolBuilder]. All methods that can be implemented as blocking
+  /// listeners will be.
+  ///
+  /// Note: You cannot call this method after you have called `builder.build`.
+  static void addToBuilderAsBlocking(
+    objc.ObjCProtocolBuilder builder, {
+    required void Function() doSomething,
+    objc.NSString Function()? optionalName,
+    bool $keepIsolateAlive = true,
+  }) {
+    MyProtocol2$Builder.doSomething.implementAsBlocking(builder, doSomething);
+    MyProtocol2$Builder.optionalName.implement(builder, optionalName);
+    builder.addProtocol($protocol);
+  }
+
+  /// doSomething
+  static final doSomething = objc.ObjCProtocolListenableMethod<void Function()>(
+    _protocol_MyProtocol2,
+    _sel_doSomething,
+    ffi.Native.addressOf<
+          ffi.NativeFunction<
+            ffi.Void Function(
+              ffi.Pointer<objc.ObjCObjectImpl>,
+              ffi.Pointer<ffi.Void>,
+            )
+          >
+        >(_NativeLibrary_protocolTrampoline_ovsamd)
+        .cast(),
+    objc.getProtocolMethodSignature(
+      _protocol_MyProtocol2,
+      _sel_doSomething,
+      isRequired: true,
+      isInstanceMethod: true,
+    ),
+    (void Function() func) => ObjCBlock_ffiVoid_ffiVoid.fromFunction(
+      (ffi.Pointer<ffi.Void> _) => func(),
+    ),
+    (void Function() func) =>
+        ObjCBlock_ffiVoid_ffiVoid.listener((ffi.Pointer<ffi.Void> _) => func()),
+    (void Function() func) =>
+        ObjCBlock_ffiVoid_ffiVoid.blocking((ffi.Pointer<ffi.Void> _) => func()),
+  );
+
+  /// optionalName
+  static final optionalName = objc.ObjCProtocolMethod<objc.NSString Function()>(
+    _protocol_MyProtocol2,
+    _sel_optionalName,
+    ffi.Native.addressOf<
+          ffi.NativeFunction<
+            ffi.Pointer<objc.ObjCObjectImpl> Function(
+              ffi.Pointer<objc.ObjCObjectImpl>,
+              ffi.Pointer<ffi.Void>,
+            )
+          >
+        >(_NativeLibrary_protocolTrampoline_1mbt9g9)
+        .cast(),
+    objc.getProtocolMethodSignature(
+      _protocol_MyProtocol2,
+      _sel_optionalName,
+      isRequired: false,
+      isInstanceMethod: true,
+    ),
+    (objc.NSString Function() func) => ObjCBlock_NSString_ffiVoid.fromFunction(
+      (ffi.Pointer<ffi.Void> _) => func(),
+    ),
+  );
+}
